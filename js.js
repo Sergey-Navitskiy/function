@@ -29,11 +29,6 @@ const lada = new Car('Lada', 170)
 
 /// классы  
 
-function User(firstName, lastName, age) {
-    this.firstName = firstName
-    this.lastName = lastName
-    this.age = age
-}
 
 class User1 {
     constructor(firstName, lastName, age) {
@@ -41,9 +36,23 @@ class User1 {
         this.lastName = lastName
         this.age = age
     }
-    calcAge(){
-        return 2037 - this.age
+    get biearthYear(){
+        return new Date().getFullYear() - this.age
     }
 }
 
-const anna = new User1('Anna', 'Andreeva', 1995)
+const anna = new User1('Anna', 'Andreeva', 32)
+console.log(anna)
+
+// getters
+
+const user = {
+    firstName: 'Dima',
+    lastName: 'Zarubov',
+    age: 30,
+    get birthYear() {
+        return new Date().getFullYear() - this.age
+    }
+}
+
+console.log(user)
