@@ -34,10 +34,19 @@ class User1 {
     constructor(firstName, lastName, age) {
         this.firstName = firstName
         this.lastName = lastName
-        this.age = age
+        this.age
+        this.biearthYear = this.biearthYear
     }
     get biearthYear(){
         return new Date().getFullYear() - this.age
+    }
+    set biearthYear(val){
+        const year = '' + val
+        if(year.length < 4){
+            alert('Вы ввели меньше 4-х символов')
+            return
+        }
+        this.age = new Date().getFullYear() - year
     }
 }
 
@@ -56,3 +65,26 @@ const user = {
 }
 
 console.log(user)
+
+// class  Utuber {
+//     constructor(fullName) {
+//         this.firstNane
+//         this.lastNane
+//         this.fullNane = fullNane 
+//     }
+//     get fullName(){
+//         return `${this.firstNane} ${this.lastNane}`
+//     }
+//     set fullNane(val){
+//         if (val.length < 3) {
+//             alert('Маленькое имя, нужно больше 3 символов')
+//             return
+//         }
+//         const name = val.split(' ')
+//         this.firstNane = name[0]
+//         this.lastNane = name[1]
+//     }
+// }
+
+// const hanna = new Utuber('Anna Fokeevna')
+// console.log(hanna)
