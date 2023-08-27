@@ -10,20 +10,30 @@
 Авто№2 - "Skoda", скорость 105км\ч
 
 */
-
-function Car(mark, speed){
-    this.mark = mark
-    this.speed = speed
-}
-
-Car.prototype.calcSpeedUp = function() {
-    this.speed += 10
-    console.log(`${this.mark} едет со скоростью - ${this.speed} kmh`)
-}
-Car.prototype.calcSpeedDown = function() {
-    this.speed -= 5
-    console.log(`${this.mark} едет со скоростью - ${this.speed} kmh`)
-}
+// задание с классами, гет и сет
+class Car{
+    constructor(mark, speed) {
+      this.mark = mark;
+      this.speed = speed;
+    }
+    get speed() {
+      return this.speedUS * 1.6
+    }
+    set speed(speed) {
+      this.speedUs = speed / 1.6 
+    }
+  
+    accelerate() {
+      this.speed += 10;
+      console.log(`${this.mark} едедет со скоростью ${this.speed} км\ч`);
+    }
+  
+    break() {
+      this.speed -= 5;
+      console.log(`${this.mark} едедет со скоростью ${this.speed} км\ч`);
+    }
+  }
+    
 
 const lada = new Car('Lada', 170)
 
