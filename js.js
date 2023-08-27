@@ -98,3 +98,15 @@ console.log(user)
 
 // const hanna = new Utuber('Anna Fokeevna')
 // console.log(hanna)
+
+//статические методы
+
+class Article {
+    constructor(title, date){
+        this.title = title
+        this.date = date
+    }
+    static createTodays(){
+        return new this('Some article', new Date())
+    }
+}
