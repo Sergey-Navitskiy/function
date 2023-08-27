@@ -127,3 +127,37 @@ const ivan = Object.create(newProto)
 ivan.init('Ivan', 35)
 console.log(ivan)
 ivan.calcbirth()
+
+
+// дочерние классы
+
+function Employee(firstName, lastName, age, post ){
+    this.firstName = firstName
+    this.lastName = lastName
+    this.age = age
+    this.post = post
+
+
+}
+
+Employee.prototype.calcbirth = function () {
+    console.log(new Date().getFullYear() - this.age)
+}
+
+const cashier = new Employee('Ваня','Авдеев', 26, 'Кассир')
+
+
+function Manager(firstName, lastName, age, post, password){
+    Employee.call(this, firstName, lastName, age, post,)
+    this.password = password
+}
+Manager.prototype = Object.create(Employee.prototype)
+
+Manager.prototype.sayHello = function() {
+    console.log('Hello, i am a manager method')
+}
+
+const manager = new Manager('Irina', 'Kravzova', 33, 'Menager', 'password ')
+manager.calcbirth()
+console.log(manager)
+manager.sayHello
