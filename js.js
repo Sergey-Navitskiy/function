@@ -131,33 +131,54 @@ ivan.calcbirth()
 
 // дочерние классы
 
-function Employee(firstName, lastName, age, post ){
-    this.firstName = firstName
-    this.lastName = lastName
-    this.age = age
-    this.post = post
+class Employee{
+    constructor(firstName, lastName, age, post){
+        this.firstName = firstName
+        this.lastName = lastName
+        this.age = age
+        this.post = post
 
-
+    }
+    calcbirth() {
+        console.log(new Date().getFullYear() - this.age)
+    }
 }
 
-Employee.prototype.calcbirth = function () {
-    console.log(new Date().getFullYear() - this.age)
+
+class Manager extends Employee{
+    constructor(firstName, lastName, age, post, password){
+        super(firstName, lastName, age, post)
+        this.password = password
+    }
+    sayHello() {
+        console.log('Hello, i am a manager method')
+    }
 }
 
-const cashier = new Employee('Ваня','Авдеев', 26, 'Кассир')
 
 
-function Manager(firstName, lastName, age, post, password){
-    Employee.call(this, firstName, lastName, age, post,)
-    this.password = password
-}
-Manager.prototype = Object.create(Employee.prototype)
+ 
 
-Manager.prototype.sayHello = function() {
-    console.log('Hello, i am a manager method')
-}
 
-const manager = new Manager('Irina', 'Kravzova', 33, 'Menager', 'password ')
-manager.calcbirth()
-console.log(manager)
-manager.sayHello
+
+
+
+
+
+// const cashier = new Employee('Ваня','Авдеев', 26, 'Кассир')
+
+
+// function Manager(firstName, lastName, age, post, password){
+//     Employee.call(this, firstName, lastName, age, post,)
+//     this.password = password
+// }
+// Manager.prototype = Object.create(Employee.prototype)
+
+// Manager.prototype.sayHello = function() {
+//     console.log('Hello, i am a manager method')
+// }
+
+// const manager = new Manager('Irina', 'Kravzova', 33, 'Menager', 'password ')
+// manager.calcbirth()
+// console.log(manager)
+// manager.sayHello
