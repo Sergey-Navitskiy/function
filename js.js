@@ -160,11 +160,6 @@ class Manager extends Employee{
  
 
 
-
-
-
-
-
 // const cashier = new Employee('Ваня','Авдеев', 26, 'Кассир')
 
 
@@ -182,3 +177,18 @@ class Manager extends Employee{
 // manager.calcbirth()
 // console.log(manager)
 // manager.sayHello
+
+
+// переменные в классах
+
+class Account {
+    movements = []; // обязалово точка с запятой
+    constructor(owner, currency, pin,){
+        this.owner = owner
+        this.currency = currency
+        this.pin = pin
+        this.movements = []
+    }
+    
+}
+const ivam = new Account('Ivam', 'Rub', 1111)
