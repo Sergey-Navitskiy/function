@@ -182,13 +182,25 @@ class Manager extends Employee{
 // переменные в классах
 
 class Account {
-    movements = []; // обязалово точка с запятой
+    _movements = []; // обязалово точка с запятой
     constructor(owner, currency, pin,){
         this.owner = owner
         this.currency = currency
-        this.pin = pin
+        this._pin = pin
         this.movements = []
     }
-    
+    changPin(password){
+        this._pin = password
+    }
+    deposit(val){
+        this._movements.push(val)
+    }
+    withdrowl(val){
+        this.deposit(-val)
+    }
+    getMov(){
+        return this._movements
+    }
 }
 const ivam = new Account('Ivam', 'Rub', 1111)
+
